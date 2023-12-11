@@ -23,5 +23,6 @@ public class Main {
 
             System.out.println(Quarter + " " + Dime + " " + Nickel + " " + Penny);
         }
+        sc.close();
     }
 }
