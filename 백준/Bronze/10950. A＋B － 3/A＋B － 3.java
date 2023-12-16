@@ -10,7 +10,5 @@ public class Main {
             int B = sc.nextInt();
             System.out.println(A + B);
         }
-
-
     }
 }
