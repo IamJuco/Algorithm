@@ -3,7 +3,7 @@ class Solution {
         var answer: Array<String> = arrayOf<String>()
 
         my_string.split(" ").forEach {
-            if (it != " " && it != ""){
+            if (it != ""){
                 answer += it
             }
         }
