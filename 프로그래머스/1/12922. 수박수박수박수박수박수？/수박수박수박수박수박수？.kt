@@ -1,5 +1,12 @@
 class Solution {
     fun solution(n: Int): String {
-        return "수박".repeat(n / 2) + if (n % 2 != 0) "수" else ""
+        var answer = ""
+        for(i in 1.. n) {
+            when(i % 2) {
+                0 -> answer += "박"
+                else -> answer += "수"
+            }
+        }
+        return answer
     }
 }
