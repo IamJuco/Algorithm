@@ -1,15 +1,19 @@
+import kotlin.math.abs
+
 class Solution {
     fun solution(price: Int, money: Int, count: Int): Long {
-        var answer: Long = 0
-        var totalPrice: Long = 0
-        for (i in 1..count){
-            totalPrice = totalPrice + price * i
+        var answer: Long
+        var temp: Long = 0
+        for (i in 1..count) {
+            temp += (price * i).toLong()
         }
-        answer = totalPrice - money
-
-        if (money >= totalPrice){
+        if (temp > money) {
+            answer = money - temp
+            answer = abs(answer)
+        } else {
             answer = 0
         }
+
         return answer
     }
 }
