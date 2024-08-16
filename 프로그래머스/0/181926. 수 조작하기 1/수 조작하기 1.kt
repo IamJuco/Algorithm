@@ -1,7 +1,6 @@
 class Solution {
     fun solution(n: Int, control: String): Int {
         var answer = n
-
         for (i in control.indices){
             if (control[i].equals('w')){
                 answer += 1
@@ -13,7 +12,6 @@ class Solution {
                 answer -= 10
             }
         }
-
         return answer
     }
 }
