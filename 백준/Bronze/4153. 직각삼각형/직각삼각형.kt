@@ -1,11 +1,15 @@
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import kotlin.math.pow
 
 fun main() {
-    while (true) {
-        val (input1, input2, input3) = readln().split(" ").map { it.toDouble() }
-        val inputList = listOf(input1, input2, input3).sorted()
+    val br = BufferedReader(InputStreamReader(System.`in`))
 
-        if (input1 == 0.0 && input2 == 0.0 && input3 == 0.0) {
+    while (true) {
+        val input = br.readLine().split(" ").map { it.toDouble() }
+        val inputList = input.sorted()
+
+        if (input[0] == 0.0 && input[1] == 0.0 && input[2] == 0.0) {
             break
         }
 
