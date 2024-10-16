@@ -1,9 +1,13 @@
+import java.io.BufferedReader
+import java.io.InputStreamReader
+
 fun main() {
+    val br = BufferedReader(InputStreamReader(System.`in`))
     var oddArr = intArrayOf()
     var oddSum = 0
 
     for (i in 0..6) {
-        val input = readln().toInt()
+        val input = br.readLine().toInt()
         if (input % 2 != 0) {
             oddArr += input
             oddSum += input
