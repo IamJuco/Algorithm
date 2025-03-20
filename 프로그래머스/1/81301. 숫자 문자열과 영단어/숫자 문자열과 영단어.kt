@@ -1,14 +1,16 @@
 class Solution {
+    enum class NumberWord(val word: String, val number: String) {
+        ZERO("zero", "0"), ONE("one", "1"), TWO("two", "2"),
+        THREE("three", "3"), FOUR("four", "4"), FIVE("five", "5"),
+        SIX("six", "6"), SEVEN("seven", "7"), EIGHT("eight", "8"),
+        NINE("nine", "9");
+    }
+
     fun solution(s: String): Int {
-        var answer: Int = 0
-        var str = s
-        var numList = arrayOf("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
-
-        for (i in 0.. numList.size-1){
-            str = str.replace(numList[i], i.toString())
+        var answer = s
+        for (i in NumberWord.values()) {
+            answer = answer.replace(i.word, i.number)
         }
-        answer = str.toInt()
-
-        return answer
+        return answer.toInt()
     }
 }
