@@ -1,7 +1,7 @@
 class Solution {
     fun solution(s: String): String {
-        return s.split(" ").map{ word ->
-            word.mapIndexed{ index, char ->
+        return s.split(" ").map{
+            it.mapIndexed{ index, char ->
                 if(index % 2 == 0) char.uppercase() else char.lowercase()
             }.joinToString("")
         }.joinToString(" ")
