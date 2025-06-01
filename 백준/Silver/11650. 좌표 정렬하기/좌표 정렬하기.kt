@@ -1,17 +1,18 @@
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
+data class Point(val a: Int, val b:Int)
+
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val t = br.readLine().toInt()
-    val arr = ArrayList<Pair<Int, Int>>()
+    val list = mutableListOf<Point>()
+    
     repeat(t) {
         val input = br.readLine().split(" ")
-        arr.add(Pair(input[0].toInt(), input[1].toInt()))
+        list.add(Point(input[0].toInt(), input[1].toInt()))
     }
-    arr.sortWith(compareBy({it.first}, {it.second}))
-
-    repeat(t) {
-        println("${arr[it].first} ${arr[it].second}")
-    }
+    
+    list.sortWith(compareBy({it.a}, {it.b}))
+    list.forEach { println("${it.a} ${it.b}") }
 }
