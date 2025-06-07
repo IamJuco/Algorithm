@@ -3,19 +3,22 @@ import java.io.InputStreamReader
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val heightList = mutableListOf<Int>()
+    val small = mutableListOf<Int>()
+    var result = 0
     repeat(9) {
-        heightList.add(br.readLine().toInt())
+        small.add(br.readLine().toInt())
     }
-    val sum: Int = heightList.sum()
-    for (i in 0..8) {
-        for (j in i + 1..8) {
-            if (sum - (heightList[i] + heightList[j]) == 100) {
-                val result = heightList.filterIndexed { index, _ -> index != i && index != j }.sorted()
-
-                result.forEach { println(it) }
-                return
+    
+    val total = small.sum()
+    outer@for(i in 0.. small.size-1) {
+        for(j in i+1..small.size-1) {
+            if(total - small[i] - small[j] == 100) {
+                small.removeAt(j)
+                small.removeAt(i)
+                break@outer
             }
         }
     }
+    small.sort()
+    small.forEach { println(it) }
 }
