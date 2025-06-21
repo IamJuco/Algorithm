@@ -12,12 +12,19 @@ fun main() {
         }
         votes[num-1]++
     }
-    val maxVotes = votes.max()
-    val winners = votes.withIndex().filter { it.value == maxVotes }
 
-    if (winners.size >= 2) {
+    val maxVotes = votes.max()
+    var count = 0
+    var winnerIndex = 0
+    for (i in votes.indices) {
+        if (votes[i] == maxVotes) {
+            count++
+            winnerIndex = i
+        }
+    }
+    if (count >= 2) {
         println("skipped")
     } else {
-        println(winners[0].index + 1)
+        println(winnerIndex + 1)
     }
 }
