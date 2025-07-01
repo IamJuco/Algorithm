@@ -10,7 +10,6 @@ fun main() {
         val input = br.readLine()
         map[input] = map.getOrDefault(input, 0) + 1
     }
-    val result = map.toList().sortedWith(compareByDescending<Pair<String, Int>> { it.second }.thenBy { it.first })
-    println(result.toMap().keys.first())
-
+    val result = map.toSortedMap().maxBy { it.value }
+    println(result.key)
 }
