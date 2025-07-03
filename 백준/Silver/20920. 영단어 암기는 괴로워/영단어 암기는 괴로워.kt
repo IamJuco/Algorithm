@@ -19,4 +19,5 @@ fun main() {
         bw.newLine()
     }
     bw.flush()
+    bw.close()
 }
