@@ -1,15 +1,21 @@
 class Solution {
-    enum class NumberWord(val word: String, val number: String) {
-        ZERO("zero", "0"), ONE("one", "1"), TWO("two", "2"),
-        THREE("three", "3"), FOUR("four", "4"), FIVE("five", "5"),
-        SIX("six", "6"), SEVEN("seven", "7"), EIGHT("eight", "8"),
-        NINE("nine", "9");
-    }
-
     fun solution(s: String): Int {
         var answer = s
-        for (i in NumberWord.values()) {
-            answer = answer.replace(i.word, i.number)
+        val map = mutableMapOf(
+            "zero" to 0,
+            "one" to 1,
+            "two" to 2,
+            "three" to 3,
+            "four" to 4,
+            "five" to 5,
+            "six" to 6,
+            "seven" to 7,
+            "eight" to 8,
+            "nine" to 9
+        )
+        
+        for((str, int) in map) {
+            answer = answer.replace(str, int.toString())
         }
         return answer.toInt()
     }
