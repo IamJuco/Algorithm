@@ -3,13 +3,20 @@ import java.io.InputStreamReader
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val t = br.readLine().toInt()
-    val map = mutableMapOf<String, Boolean>()
-    repeat(t) {
-        val (a, b) = br.readLine().split(" ")
-        map[a] = if (b == "enter") true else false
+    val n = br.readLine().toInt()
+    val people = mutableSetOf<String>()
+
+    repeat(n) {
+        val (name, status) = br.readLine().split(" ")
+        if (status == "enter") {
+            people.add(name)
+        } else {
+            people.remove(name)
+        }
     }
-    map.filter { it.value }.keys.sortedDescending().forEach {
-        println(it)
+
+    val result = people.sortedDescending()
+    for (name in result) {
+        println(name)
     }
 }
